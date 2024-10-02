@@ -9,9 +9,10 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/About Us', function () {
-    return view('About Us');
+Route::get('/about-us', function () {
+    return view('aboutus');
 })->name('About Us');
+
 
 Route::get('/Product', function () {
     return view('Product');

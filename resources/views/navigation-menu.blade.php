@@ -17,7 +17,7 @@
                             <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="mr-3">
-                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('About Us') }}">Services</a>
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('About Us') }}">About Us</a>
                         </li>
                         <li class="mr-3">
                             <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('categories') }}">Projects</a>
