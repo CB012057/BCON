@@ -17,6 +17,7 @@ Route::get('/Product', function () {
     return view('Product');
 })->name('Product');
 
+
 Route::get('/Contact Us', function () {
     return view('Contact Us');
 })->name('Contact Us');
@@ -37,5 +38,21 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
+    Route::get('/account-info', function () {
+        return view('AccountInfo'); // Adjust the path if the file is in a subfolder
+    })->name('account.info');
+
+    Route::get('/projects', function () {
+        return view('projects'); // Adjust the path if the file is in a subfolder
+    })->name('projects');
+
+    Route::get('/quotations-proposals', function () {
+        return view('qandp');
+    })->name('quotations.proposals');
+
+    Route::get('/contact-info', function () {
+        return view('contactinfo');
+    })->name('contact.info');
 
 });

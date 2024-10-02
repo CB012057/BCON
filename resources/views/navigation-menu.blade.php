@@ -17,14 +17,16 @@
                             <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="{{ route('home') }}">Home</a>
                         </li>
                         <li class="mr-3">
-                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('About Us') }}">About Us</a>
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('About Us') }}">Services</a>
                         </li>
                         <li class="mr-3">
-                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('categories') }}">Project</a>
+                            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('categories') }}">Projects</a>
                         </li>
+                        @auth
                         <li class="mr-3">
                             <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="{{ route('dashboard') }}">Dashboard</a>
                         </li>
+                        @endauth
 
 {{--                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">--}}
 {{--                        {{ __('home') }}--}}
@@ -44,12 +46,7 @@
                         <div class="flex items-center justify-end space-x-4">
                             <ul class="list-reset lg:flex justify-end flex-1 items-center">
                             @auth
-                                <a
-                                    href="{{ url('/dashboard') }}"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
-                                >
-                                    Dashboard
-                                </a>
+
                             @else
                                 <a
                                     href="{{ route('login') }}"
