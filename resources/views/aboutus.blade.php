@@ -6,28 +6,62 @@
     </x-slot>
 
     <div class="container mt-5 text-center">
-        <!-- Successful Projects & Popularity Growth Section (One Below the Other) -->
+        <!-- Achievements Section -->
         <div class="mt-5">
-            <h2>Our Achievements</h2>
+            <h2 style="
+                font-size: 28px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: midnightblue;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #4CAF50;
+                letter-spacing: 1.5px;">
+                Our Achievements
+            </h2>
+            <br>
+
             <p>Visualizing our completed projects and company growth over the years.</p>
+            <br>
+            <br>
+            <br>
+            <div class="flex justify-center">
+                <!-- Successful Projects Chart -->
+                <div class="mx-4" style="width: 400px; margin: 20px;">
+                    <canvas id="successfulProjectsChart"></canvas>
+                </div>
 
-            <!-- Successful Projects Chart -->
-            <div class="mx-auto" style="max-width: 400px;">
-                <canvas id="successfulProjectsChart" style="max-width: 100%; height: 250px;"></canvas>
-            </div>
+                <!-- Popularity Growth Chart -->
+                <div class="mx-4" style="width: 400px; margin: 20px;">
+                    <canvas id="popularityGrowthChart"></canvas>
+                </div>
 
-            <!-- Popularity Growth Chart -->
-            <div class="mx-auto mt-4" style="max-width: 400px;">
-                <canvas id="popularityGrowthChart" style="max-width: 100%; height: 250px;"></canvas>
+                <!-- Project Type Distribution Chart -->
+                <div class="mx-4" style="width: 400px; margin: 20px;">
+                    <canvas id="projectTypeDistributionChart"></canvas>
+                </div>
             </div>
         </div>
 
-        <!-- Project Type Distribution Section -->
-        <div class="mt-5">
-            <h2>Project Type Distribution</h2>
-            <p>See how our projects are distributed across various sectors.</p>
-            <div class="mx-auto" style="max-width: 400px;">
-                <canvas id="projectTypeDistributionChart" style="max-width: 100%; height: 250px;"></canvas>
+        <!-- Projects Slideshow Section -->
+        <div class="mt-10">
+            <h2 style="
+                font-size: 28px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: midnightblue;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #4CAF50;
+                letter-spacing: 1.5px;">
+                Our Projects
+            </h2>
+            <br>
+            <br>
+
+            <div id="projectsSlideshow" class="slideshow-container mx-auto" style="max-width: 900px; max-height: 500px;">
+                <img src="{{ asset('Images/Homeblade12.jpg') }}" alt="Project 1" class="slideshow-image" style="width:100%; max-height: 400px;">
+                <img src="{{ asset('Images/Homeblade11.jpg') }}" alt="Project 2" class="slideshow-image" style="width:100%; max-height: 400px;">
+                <img src="{{ asset('Images/Homeblade10.jpg') }}" alt="Project 3" class="slideshow-image" style="width:100%; max-height: 400px;">
+                <img src="{{ asset('Images/Homeblade6.jpg') }}" alt="Project 3" class="slideshow-image" style="width:100%; max-height: 400px;">
             </div>
         </div>
     </div>
@@ -43,7 +77,7 @@
                 labels: ['2020', '2021', '2022', '2023'],
                 datasets: [{
                     label: 'Successful Projects',
-                    data: [30, 45, 50, 70], // Example data
+                    data: [30, 45, 50, 70],
                     backgroundColor: '#4CAF50'
                 }]
             },
@@ -69,7 +103,7 @@
                 labels: ['2019', '2020', '2021', '2022', '2023'],
                 datasets: [{
                     label: 'Popularity Index',
-                    data: [10, 30, 45, 60, 90], // Example data
+                    data: [10, 30, 45, 60, 90],
                     borderColor: '#FF5733',
                     fill: false
                 }]
@@ -95,7 +129,7 @@
             data: {
                 labels: ['Residential', 'Commercial', 'Industrial', 'Infrastructure'],
                 datasets: [{
-                    data: [40, 30, 20, 10], // Example data
+                    data: [40, 30, 20, 10],
                     backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
                 }]
             },
@@ -103,8 +137,56 @@
                 responsive: true
             }
         });
+
+        // Slideshow Script
+        let slideIndex = 0;
+        const slides = document.getElementsByClassName("slideshow-image");
+
+        function showSlides() {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+
+        showSlides();
     </script>
+
+    <br><br><br>
+
+    <!-- Footer Section -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-10 px-8 relative">
+            <!-- Logo -->
+            <div class="FooterLogo ,absolute top-0 right-0 mt-4 mr-4">
+                <img src="{{ asset('Images/LOGOimg.png') }}" alt="BCON Logo" class="h-12">
+            </div>
+            <div class="flex flex-wrap justify-between">
+                <!-- About Us -->
+                <div class="w-full md:w-1/3 mb-6">
+                    <h4 class="text-xl font-bold mb-2">About Us</h4>
+                    <p class="text-gray-400">Welcome to Bcon, your trusted partner in construction project management. At Bcon, we believe in making the complex world of construction simple and efficient.</p>
+                </div>
+
+                <div class="flex justify-center mt-8">
+                    <a href="#" class="text-gray-400 mx-2 hover:text-white">Facebook</a>
+                    <a href="#" class="text-gray-400 mx-2 hover:text-white">Twitter</a>
+                    <a href="#" class="text-gray-400 mx-2 hover:text-white">Instagram</a>
+                    <a href="#" class="text-gray-400 mx-2 hover:text-white">LinkedIn</a>
+                </div>
+                <div class="text-center text-gray-400 mt-8">
+                    &copy; 2024 BCON
+                </div>
+            </div>
+        </div>
+    </footer>
 </x-app-layout>
+
+
+
 
 
 
